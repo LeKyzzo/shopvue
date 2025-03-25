@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia';
 import { ref, computed, watch } from 'vue';
 import bcrypt from 'bcryptjs';
+import { useRouter } from 'vue-router';
+const router = useRouter();
 
 export const useAuthStore = defineStore('auth', () => {
   const user = ref<{ email: string | null }>({ email: localStorage.getItem('userEmail') || null });
@@ -51,10 +53,13 @@ export const useAuthStore = defineStore('auth', () => {
     }
   };
 
+  
+
   const logout = () => {
     console.log('Déconnexion');
     user.value.email = null;
     localStorage.removeItem('userEmail');
+    router.push('/');
   };
 
   watch(users, (newUsers) => {
