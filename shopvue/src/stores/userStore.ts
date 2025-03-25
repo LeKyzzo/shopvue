@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia';
+/*import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 
 export const useUserStore = defineStore('user', () => {
@@ -39,4 +39,4 @@ export const useUserStore = defineStore('user', () => {
   };
 
   return { user, cart, cartTotal, login, logout, addToCart, removeFromCart, updateQuantity };
-});
+});*/

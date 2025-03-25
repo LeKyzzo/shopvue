@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia';
-import { ref, computed, watch } from 'vue';
 import { useAuthStore } from './authStore';
 import { useRouter } from 'vue-router';
 

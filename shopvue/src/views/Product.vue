@@ -42,24 +42,24 @@ export default defineComponent({
     const products = [
       {
         id: 1,
-        name: "Produit 1",
-        description: "Description du produit 1",
-        price: 19.99,
-        image: "https://via.placeholder.com/150", 
+        name: "Iphone 16",
+        description: "Le même que le 15 avec un fausse caméra en plus !",
+        price: 1299.99,
+        image: "https://im.qccdn.fr/node/comparatif-smartphone-431/thumbnail_800x480px-115798.png", 
       },
       {
         id: 2,
-        name: "Produit 2",
-        description: "Description du produit 2",
-        price: 39.99,
-        image: "https://via.placeholder.com/150",
+        name: "Poire bio",
+        description: "Le bio c'est cher.",
+        price: 52.99,
+        image: "https://www.fruits-vaud-geneve.ch/kcfinder/upload/images/fruits/poire.png",
       },
       {
         id: 3,
-        name: "Produit 3",
-        description: "Description du produit 3",
+        name: "Destop",
+        description: "Pour déboucher les gros cac*",
         price: 29.99,
-        image: "https://via.placeholder.com/150",
+        image: "https://eu-images.contentstack.com/v3/assets/blt434d6fd2be5465d7/bltaef730c60997c04b/677543ff93d3a1e500c56375/fr-FR-3665468000312_destop_gel_original_950ml_fop_bd_removebg_preview.png",
       },
     ];
 

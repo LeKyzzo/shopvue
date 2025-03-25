@@ -8,7 +8,7 @@
       <router-link to="/products" class="nav-link">Produits</router-link>
 
       <div v-if="authStore.user.email" class="nav-link">
-        <router-link to="/cart">Panier</router-link>
+        <router-link class="nav-link" to="/cart">Panier</router-link>
       </div>
 
       <div v-if="authStore.user.email" class="nav-link">

@@ -6,27 +6,16 @@ export const useAuthStore = defineStore('auth', () => {
   const user = ref<{ email: string | null }>({ email: localStorage.getItem('userEmail') || null });
   const errorMessage = ref<string | null>(null);
 
-  const users = ref<{ email: string; password: string }[]>(
-    JSON.parse(localStorage.getItem('users') || '[]')
-  );
+  const users = ref<{ email: string; password: string }[]>(JSON.parse(localStorage.getItem('users') || '[]'));
 
   const isAuthenticated = computed(() => !!user.value.email);
 
-  const hashPassword = async (password: string) => {
-    const salt = await bcrypt.genSalt(10); 
-    return await bcrypt.hash(password, salt);
-  };
-
-  const verifyPassword = async (inputPassword: string, hashedPassword: string) => {
-    return await bcrypt.compare(inputPassword, hashedPassword);
-  };
-
-  const login = async (email: string, password: string) => {
+  const login = (email: string, password: string) => {
     console.log('Tentative de connexion');
 
     const foundUser = users.value.find(user => user.email === email);
 
-    if (foundUser && await verifyPassword(password, foundUser.password)) {
+    if (foundUser && bcrypt.compareSync(password, foundUser.password)) {
       console.log('Connexion réussie');
       user.value.email = email;
       localStorage.setItem('userEmail', email);
@@ -39,7 +28,7 @@ export const useAuthStore = defineStore('auth', () => {
     }
   };
 
-  const register = async (email: string, password: string) => {
+  const register = (email: string, password: string) => {
     console.log("Tentative d'inscription");
 
     const existingUser = users.value.find(user => user.email === email);
@@ -49,8 +38,9 @@ export const useAuthStore = defineStore('auth', () => {
       errorMessage.value = 'Cet email est déjà utilisé.';
       return false;
     } else {
-      const hashedPassword = await hashPassword(password);  
+      const hashedPassword = bcrypt.hashSync(password, 10); 
       users.value.push({ email, password: hashedPassword });
+
       localStorage.setItem('users', JSON.stringify(users.value));
 
       console.log('Inscription réussie');

@@ -1,6 +1,6 @@
 <template>
     <div class="product-card">
-      <img :src="product.image" alt="Product image" class="product-image" />
+      <img :src="product.image" alt="Image du produit" class="product-image" />
       <h3>{{ product.name }}</h3>
       <p class="product-description">{{ product.description }}</p>
       <p class="product-price">{{ formatCurrency(product.price) }}</p>

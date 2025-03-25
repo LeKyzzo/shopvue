@@ -91,6 +91,7 @@ p {
   display: inline-block;
   padding: 12px 25px;
   margin-top: 20px;
+  margin-right: 20px;
   background-color: #2ecc71;
   color: white;
   text-decoration: none;
